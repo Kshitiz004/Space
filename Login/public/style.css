@@ -9,6 +9,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url('https://apod.nasa.gov/apod/image/1705/Arp273Main_HubblePestana_3079.jpg');
 }
     
 h2{ 

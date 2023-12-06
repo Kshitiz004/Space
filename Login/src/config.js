@@ -1,33 +1,38 @@
 const mongoose = require('mongoose');
-// const connect = mongoose.connect("mongodb://localhost:27017/Space");
-const connect = mongoose.connect("mongodb://127.0.0.1:27017/Space");
 
-
-// Checking database connected or not
-connect.then(() => {
+// Connect to the MongoDB database
+mongoose.connect("mongodb://127.0.0.1:27017/Space")
+  .then(() => {
     console.log("Database Connected Successfully");
-})
-// .catch(() => {
-//     console.log("Database cannot be Connected");
-// })
-
-.catch((err) => {
+  })
+  .catch((err) => {
     console.error("Database connection error:", err.message);
+  });
+
+// Creating a model based on the existing schema for collection
+const collectionSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
-// Creating Schema
-const Loginschema = new mongoose.Schema({
-    name: {
-        type:String,
-        required: true
+const collection = mongoose.model("collection", collectionSchema);
+
+const planetSchema = new mongoose.Schema({
+    descriptions: {
+      type: Object,
+      required: true,
     },
-    password: {
-        type: String,
-        required: true
-    }
-});
-
-// collection part
-const collection = new mongoose.model("users", Loginschema);
-
-module.exports = collection;
+  });
+  
+  const planet = mongoose.model("planet", planetSchema);
+  
+  module.exports = {
+    collection,
+    planet,
+  };

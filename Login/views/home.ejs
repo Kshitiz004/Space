@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planets Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-image: url('https://th.bing.com/th/id/R.25be9b22133976c9f3efd44611b3d1e4?rik=UrqN2MsYRXI9bQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f11%2fEarth-From-Space-HD-Backgrounds.jpg&ehk=PBqiIELezpuDd%2fkeHrYL9bq6Y56OXBm7N97eTJ9I35I%3d&risl=&pid=ImgRaw&r=0');
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+            padding: 8px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+        }
+        li:hover {
+            background-color: #2980b9;
+        }
+        #planet-description {
+            margin-top: 20px;
+            color:#fff;
+        }
+        h1 {
+            color: #3498db; 
+        }
+    </style>
+</head>
+<body>
+    
+
+    <h1>Explore the Planets</h1>
+
+    <ul id="planet-list">
+        <li onclick="showDescription('Mercury')">Mercury</li>
+        <li onclick="showDescription('Venus')">Venus</li>
+        <li onclick="showDescription('Earth')">Earth</li>
+        <li onclick="showDescription('Mars')">Mars</li>
+        <li onclick="showDescription('Jupiter')">Jupiter</li>
+        <li onclick="showDescription('Saturn')">Saturn</li>
+        <li onclick="showDescription('Uranus')">Uranus</li>
+        <li onclick="showDescription('Neptune')">Neptune</li>
+    </ul>
+
+    <div id="planet-description">
+        <p>Click on a planet to see its description.</p>
+    </div>
+
+    <script>
+        async function showDescription(planetName) {
+            try {
+                const response = await fetch(`/planet/${planetName}`);
+                const data = await response.json();
+
+                document.getElementById("planet-description").innerHTML = `<p>${data.description}</p>`;
+            } catch (error) {
+                console.error("Error fetching planet description:", error);
+            }
+        }
+    </script>
+
+</body>
+</html>
