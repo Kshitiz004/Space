@@ -23,6 +23,7 @@ app.post("/signup", async (req, res) => {
   };
   const userdata = await collection.insertMany(data);
   console.log(userdata);
+  res.render("login");
 });
 
 app.post("/login", async (req, res) => {

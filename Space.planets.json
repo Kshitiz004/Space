@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "6570618b59bde1287bb664af"
+  },
+  "descriptions": {
+    "Mercury": "Mercury is the smallest and closest planet to the Sun.",
+    "Venus": "Venus is the second planet from the Sun and is often called Earth's sister planet.",
+    "Earth": "Earth is the third planet from the Sun and is the only known celestial body to support life.",
+    "Mars": "Mars is often referred to as the Red Planet and is known for its reddish appearance.",
+    "Jupiter": "Jupiter is the largest planet in our solar system and is a gas giant.",
+    "Saturn": "Saturn is known for its stunning ring system composed of ice particles.",
+    "Uranus": "Uranus is a gas giant with a distinct feature - it rotates on its side.",
+    "Neptune": "Neptune is the farthest known planet from the Sun and is a gas giant similar to Uranus."
+  }
+}]
